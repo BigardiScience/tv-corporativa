@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+data
+node_modules
+work
+*.log
+*.zip
+coverage
+.vscode
+docs
+tests
+*.cmd
+*.code-workspace

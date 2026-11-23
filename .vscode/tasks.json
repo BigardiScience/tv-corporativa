@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "TV Corporativa: criar primeiro administrador", "type": "process", "command": "node", "args": ["--env-file-if-exists=.env", "scripts/configure.mjs"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [], "presentation": { "reveal": "always", "focus": true, "panel": "dedicated" } },
+    { "label": "TV Corporativa: iniciar", "type": "process", "command": "node", "args": ["--env-file-if-exists=.env", "server/index.mjs"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [], "isBackground": true, "presentation": { "reveal": "always", "panel": "dedicated" } },
+    { "label": "TV Corporativa: recuperar senha de administrador", "type": "process", "command": "node", "args": ["--env-file-if-exists=.env", "scripts/reset-admin.mjs"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [], "presentation": { "reveal": "always", "focus": true, "panel": "dedicated" } },
+    { "label": "TV Corporativa: verificar sintaxe", "type": "process", "command": "node", "args": ["scripts/check.mjs"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] },
+    { "label": "TV Corporativa: testar", "type": "process", "command": "node", "args": ["--test", "tests/*.test.mjs"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [], "group": "test" },
+    { "label": "TV Corporativa: verificar auditoria", "type": "process", "command": "node", "args": ["--env-file-if-exists=.env", "scripts/verify-audit.mjs"], "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] }
+  ]
+}

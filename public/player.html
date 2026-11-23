@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Player da TV · TV Corporativa</title>
+  <link rel="stylesheet" href="/player.css">
+  <script type="module" src="/player.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <main id="main" tabindex="-1">
+    <section id="pairing" class="pairing" aria-labelledby="pair-title">
+      <div class="pair-card">
+        <a class="brand official-brand" href="/" aria-label="TV Corporativa, voltar para a plataforma"><img src="/assets/logo.png" alt="TV Corporativa" class="brand-logo" width="163" height="130"><span>TV CORPORATIVA<span class="brand-caption">CONECTANDO PESSOAS</span></span></a>
+        <div class="screen-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="7" width="38" height="27" rx="3"/><path d="M17 41h14M24 34v7"/><path d="m20 17 10 5-10 5z"/></svg></div>
+        <p class="eyebrow">CONEXÃO SEGURA</p>
+        <h1 id="pair-title">Esta tela faz parte<br>da nossa conexão.</h1>
+        <p class="lead">No painel, cadastre esta TV e digite abaixo o código de pareamento fornecido pela equipe de TI.</p>
+        <form id="pair-form">
+          <label for="pair-code">Código de 6 dígitos</label>
+          <input id="pair-code" name="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="000000" required aria-describedby="pair-help pair-error">
+          <p id="pair-help" class="hint">O código expira em 10 minutos. Use somente em uma TV autorizada.</p>
+          <p id="pair-error" class="error" role="alert" hidden></p>
+          <button id="pair-submit" type="submit">Conectar esta TV <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="storage-note">Ao conectar, esta TV guarda uma credencial neste navegador. A TI pode revogar o acesso pelo painel.</p>
+        <a class="demo-link" href="/player.html?demo=1">Conhecer o player em demonstração <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="pair-footer"><span>Comunicação que chega a todos.</span><span>TV CORPORATIVA</span></div>
+    </section>
+
+    <section id="playback" class="playback" hidden aria-label="Reprodução da TV corporativa">
+      <div id="stage" class="stage" aria-live="off"></div>
+      <div id="empty" class="empty-state" hidden>
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <h1 id="empty-title">Tudo pronto por aqui.</h1>
+        <p id="empty-description">Aguardando uma programação para esta TV.</p>
+      </div>
+      <div id="demo-badge" class="demo-badge" hidden>DEMONSTRAÇÃO · SEM TRANSMISSÃO</div>
+      <div id="control-dock" class="control-dock">
+        <p id="audio-notice" class="audio-notice" role="status" hidden></p>
+        <div class="display-meta"><span class="status-dot" id="status-dot" aria-hidden="true"></span><span id="display-name">TV corporativa</span><span class="separator" aria-hidden="true">/</span><span id="playback-status" role="status">Conectando</span><span id="playback-note" class="playback-note" hidden></span></div>
+        <div class="player-actions">
+          <button id="previous-slide" type="button" aria-label="Conteúdo anterior" title="Conteúdo anterior (P)" aria-keyshortcuts="P MediaTrackPrevious"><span aria-hidden="true">←</span> Anterior</button>
+          <button id="play-toggle" type="button" aria-label="Pausar reprodução" title="Pausar reprodução (K)" aria-keyshortcuts="K MediaPlayPause">Pausar</button>
+          <button id="next-slide" type="button" aria-label="Próximo conteúdo" title="Próximo conteúdo (N)" aria-keyshortcuts="N MediaTrackNext">Próximo <span aria-hidden="true">→</span></button>
+          <button id="audio-toggle" type="button" aria-label="Silenciar vídeo" title="Silenciar (M)" aria-keyshortcuts="M AudioVolumeMute" disabled>Silenciar</button>
+          <button id="fullscreen" type="button" aria-label="Entrar em tela cheia" title="Tela cheia">Tela cheia <span aria-hidden="true">⛶</span></button>
+          <button id="disconnect" type="button" class="secondary" title="Remover a conexão deste navegador">Desconectar</button>
+        </div>
+      </div>
+      <div id="slide-progress" class="slide-progress" aria-hidden="true"></div>
+    </section>
+  </main>
+  <dialog id="disconnect-dialog" aria-labelledby="disconnect-title">
+    <h2 id="disconnect-title">Desconectar esta TV?</h2>
+    <p>A credencial será removida deste navegador. Para conectar novamente, peça um novo código à TI.</p>
+    <div class="dialog-actions"><button id="cancel-disconnect" type="button">Continuar exibindo</button><button id="confirm-disconnect" class="danger" type="button">Desconectar</button></div>
+  </dialog>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>
